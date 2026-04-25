@@ -8,7 +8,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const API_URL = import.meta.env.VITE_API_URL || "https://mern-task-app-hi43.onrender.com/";
+  const API_URL = import.meta.env.VITE_API_URL || "https://mern-task-app-hi43.onrender.com";
 
   const fetchTasks = async () => {
     setLoading(true);
