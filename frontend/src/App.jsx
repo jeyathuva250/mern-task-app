@@ -8,12 +8,12 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const API_URL = import.meta.env.VITE_API_URL || "https://mern-task-app-hi43.onrender.com";
+  const API_URL = import.meta.env.VITE_API_URL || "https://mern-task-app-hi43.onrender.com/";
 
   const fetchTasks = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(API_URL);
+      const res = await axios.get(`${API_URL}/api/tasks`);
       setTasks(res.data);
       setError(null);
     } catch (err) {
@@ -29,7 +29,7 @@ function App() {
     if (!title.trim()) return;
 
     try {
-      const res = await axios.post(API_URL, { title });
+      const res = await axios.post(`${API_URL}/api/tasks`, { title });
       setTasks([res.data, ...tasks]);
       setTitle("");
     } catch (err) {
